@@ -21,11 +21,22 @@
          fetch("https://codecyprus.org/th/api/list")
              .then(response => response.json())
              .then(jsonObject => {
-                 console.log(jsonObject);
+
+                 let challengesList = document.getElementById("challenges");
+
+
+                 let treasureHunts = jsonObject.treasureHunts;
+
+
+                 for (let i = 0; i < treasureHunts.length; i++) {
+
+                     let listItem = document.createElement("li");
+                     listItem.innerHTML = treasureHunts[i].name;
+                     challengesList.appendChild(listItem);
+                 }
              });
      }
-
      getChallenges();
  </script>
 </body>
-</html><!-- app.html - treasure hunt web app (placeholder) -->
+</html>
