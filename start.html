@@ -36,6 +36,14 @@
     function startHunt() {
 
         let playerName = document.getElementById("playerName").value;
+        if(playerName ==="") {
+            document.getElementById("message").innerHTML = "Please enter a valid name.";
+            return;
+
+        }
+
+
+
         let url = "https://codecyprus.org/th/api/start?player=" + playerName + "&app=teamAApp&treasure-hunt-id=" + uuid;
 
         fetch(url)
