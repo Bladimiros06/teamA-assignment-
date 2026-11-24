@@ -12,31 +12,27 @@
 
  <ul id="challenges"></ul>
 
-
-
-
-
  <script>
-     function getChallenges() {
-         fetch("https://codecyprus.org/th/api/list")
-             .then(response => response.json())
-             .then(jsonObject => {
+    function getChallenges() {
+        fetch("https://codecyprus.org/th/api/list")
+            .then(response => response.json())
+            .then(jsonObject => {
+                if (jsonObject.status == "OK") {
+                    let challengesList = document.getElementById("challenges");
+                    let treasureHunts = jsonObject.treasureHunts;
 
-                 let challengesList = document.getElementById("challenges");
-
-
-                 let treasureHunts = jsonObject.treasureHunts;
-
-
-                 for (let i = 0; i < treasureHunts.length; i++) {
-
-                     let listItem = document.createElement("li");
-                     listItem.innerHTML = "<a href='start.html?uuid=" + treasureHunts[i].uuid + "'>" + treasureHunts[i].name + "</a>";
-                     challengesList.appendChild(listItem);
-                 }
-             });
-     }
-     getChallenges();
+                    for (let i = 0; i < treasureHunts.length; i++) {
+                        let listItem = document.createElement("li");
+                        listItem.innerHTML = "<a href='start.html?uuid=" + treasureHunts[i].uuid + "'>" + treasureHunts[i].name + "</a>";
+                        challengesList.appendChild(listItem);
+                    }
+                }
+                else {
+                    alert("Something went wrong");
+                }
+            });
+    }
+    getChallenges();
  </script>
 </body>
 </html>

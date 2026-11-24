@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>start</title>
+</head>
+<body>
+  <h1> Start the hunt</h1>
+
+  <p id="huntld"></p>
+
+  <p>Your name:<input type="text" id="playerName"></p>
+  <p><input type="submit" value="Start" onclick="startHunt();"></p>
+
+  <p id="message"></p>
+
+
+
+<script>
+   const params= new URLSearchParams(location.search);
+   let uuid= params.get("uuid");
+   document.getElementById("huntld").innerHTML= "Hunt ID: " + uuid;
+
+    function startHunt() {
+
+        let playerName = document.getElementById("playerName").value;
+        let url = "https://codecyprus.org/th/api/start?player=" + playerName + "&app=teamAApp&treasure-hunt-id=" + uuid;
+
+        fetch(url)
+            .then(response => response.json())
+            .then(jsonObject => {
+                if (jsonObject.status === "OK") {
+                    document.getElementById("message").innerHTML = "Started Session: " + jsonObject.session;
+                } else {
+                    document.getElementById("message").innerHTML = jsonObject.errorMessages;
+                }
+            });
+
+   }
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
