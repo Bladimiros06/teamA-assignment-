@@ -16,6 +16,16 @@
 
 
 
+ <script>
+     function getChallenges() {
+         fetch("https://codecyprus.org/th/api/list")
+             .then(response => response.json())
+             .then(jsonObject => {
+                 console.log(jsonObject);
+             });
+     }
 
+     getChallenges();
+ </script>
 </body>
 </html><!-- app.html - treasure hunt web app (placeholder) -->
