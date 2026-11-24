@@ -21,8 +21,17 @@
 
 <script>
    const params= new URLSearchParams(location.search);
-   let uuid= params.get("uuid");
-   document.getElementById("huntld").innerHTML= "Hunt ID: " + uuid;
+   let uuid;
+    if(params.has("uuid")) {
+        uuid = params.get("uuid");
+
+        document.getElementById("huntld").innerHTML = "Hunt ID: " + uuid;
+    }
+      else {
+        document.getElementById("huntld").innerHTML = "No treasure hunt selected "
+
+    }
+
 
     function startHunt() {
 
