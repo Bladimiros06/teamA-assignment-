@@ -1,5 +1,5 @@
 # Team Meeting Notes
-24/11 first meeting: we started at around 9:30 
+ ### 24/11 FIRST meeting: we started at around 9:30 till 12:30
 
  First thing we did was to study and understand the brief so we know how to move
  
@@ -10,3 +10,10 @@ and studied the worksheets of week6
 
 And then we started coding in app.html
 
+### 24/11 SECOND meeting: we started at 5 finished at 7
+
+ After studing again some labs and from the knowlage we had about java script we made the hunt names into links to start.html with the uuid
+
+Then we built start.html to read the hunt ID , to take the players name and starts a session
+
+We did some checks and solved some problems we had 
