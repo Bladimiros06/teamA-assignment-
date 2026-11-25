@@ -24,9 +24,10 @@ Then we built start.html to read the hunt ID , to take the players name and star
 We did some checks and solved some problems we had 
   
 
-### 25/11 SECOND meeting: we started at 12:50
 
-### 25/11 THIRD meeting: we started 12:50
+### 25/11 THIRD meeting: we started 13 till 15:00
 
 So from worksheet 7b we added the setCookie function and the session ID and they are now saved in a cookie
 Also we made some small changes after studing some labs
+
+We created 2 social acc(inst twit) and put their links in the index.html
