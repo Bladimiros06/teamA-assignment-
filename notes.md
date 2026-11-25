@@ -17,3 +17,8 @@ And then we started coding in app.html
 Then we built start.html to read the hunt ID , to take the players name and starts a session
 
 We did some checks and solved some problems we had 
+
+### 25/11 THIRD meeting: we started 12:50
+
+So from worksheet 7b we added the setCookie function and the session ID and they are now saved in a cookie
+Also we made some small changes after studing some labs
