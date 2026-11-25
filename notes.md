@@ -31,3 +31,9 @@ So from worksheet 7b we added the setCookie function and the session ID and they
 Also we made some small changes after studing some labs
 
 We created 2 social acc(inst twit) and put their links in the index.html
+
+
+### 25/11 FOURTH meeting: started at 21 till 22:30
+
+Vladimiros worked on coding the question.html and some changes in start.html 
+
