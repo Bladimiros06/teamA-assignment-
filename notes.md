@@ -1,3 +1,8 @@
+#Nikolas Zorpa
+
+#Bladimiros Iosif
+
+
 # Team Meeting Notes
  ### 24/11 FIRST meeting: we started at around 9:30 till 12:30
 
@@ -17,6 +22,9 @@ And then we started coding in app.html
 Then we built start.html to read the hunt ID , to take the players name and starts a session
 
 We did some checks and solved some problems we had 
+  
+
+### 25/11 SECOND meeting: we started at 12:50
 
 ### 25/11 THIRD meeting: we started 12:50
 
