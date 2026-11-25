@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -12,7 +12,7 @@
 
   <p id="huntld"></p>
 
-  <p>Your name:<input type="text" id="playerName"></p>
+  <p><label for="playerName">Your name:</label><input type="text" id="playerName" required></p>
   <p><input type="submit" value="Start" onclick="startHunt();"></p>
 
   <p id="message"></p>
@@ -28,11 +28,20 @@
         document.getElementById("huntld").innerHTML = "Hunt ID: " + uuid;
     }
       else {
-        document.getElementById("huntld").innerHTML = "No treasure hunt selected "
+        document.getElementById("huntld").innerHTML = "No treasure hunt selected";
 
     }
 
+   function setCookie(cookieName, cookieValue, expireDays) {
+       let date = new Date();
+       date.setTime(date.getTime() + (expireDays * 24 * 60 * 60 * 1000));
+       let expires = "expires=" + date.toUTCString();
+       document.cookie = cookieName + "="
+           + cookieValue + ";" + expires + ";path=/";
 
+
+
+   }
     function startHunt() {
 
         let playerName = document.getElementById("playerName").value;
@@ -50,21 +59,15 @@
             .then(response => response.json())
             .then(jsonObject => {
                 if (jsonObject.status === "OK") {
-                    document.getElementById("message").innerHTML = "Started Session: " + jsonObject.session;
+                    document.getElementById("message").innerHTML = "Started Session:" + jsonObject.session;
+                    setCookie("session", jsonObject.session, 1);
                 } else {
+
                     document.getElementById("message").innerHTML = jsonObject.errorMessages;
                 }
             });
 
    }
-
-
-
-
-
-
-
-
 
 
 

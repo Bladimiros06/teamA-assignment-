@@ -5,34 +5,40 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>APP</title>
+    <title>Document</title>
 </head>
 <body>
+
  <h1>All Challenges</h1>
 
  <ul id="challenges"></ul>
 
- <script>
-    function getChallenges() {
-        fetch("https://codecyprus.org/th/api/list")
-            .then(response => response.json())
-            .then(jsonObject => {
-                if (jsonObject.status == "OK") {
-                    let challengesList = document.getElementById("challenges");
-                    let treasureHunts = jsonObject.treasureHunts;
+<script>
+ function getChallenges() {
+     fetch("https://codecyprus.org/th/api/list")
+         .then(response => response.json())
+         .then(jsonObject => {
 
-                    for (let i = 0; i < treasureHunts.length; i++) {
-                        let listItem = document.createElement("li");
-                        listItem.innerHTML = "<a href='start.html?uuid=" + treasureHunts[i].uuid + "'>" + treasureHunts[i].name + "</a>";
-                        challengesList.appendChild(listItem);
-                    }
-                }
-                else {
-                    alert("Something went wrong");
-                }
-            });
-    }
-    getChallenges();
+             if (jsonObject.status == "OK") {
+                 let challengesList = document.getElementById("challenges");
+                 let treasureHunts = jsonObject.treasureHunts;
+                 for (let i = 0; i < treasureHunts.length; i++) {
+                      let listItem = document.createElement("li");
+                     listItem.innerHTML = "<a href='start.html?uuid=" + treasureHunts[i].uuid + "'>" + treasureHunts[i].name + "</a>";
+                     challengesList.appendChild(listItem);
+
+
+                 }
+
+             } else {
+                 alert("Something went wrong");
+
+             }
+         });
+
+
+ }
+   getChallenges();
  </script>
 </body>
 </html>
