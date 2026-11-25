@@ -12,6 +12,10 @@
 
 
  <p id="questionText"></p>
+
+ <p><label for="answer">Your answer:</label><input type="text" id="answer" required></p>
+ <p><input type="submit" value="Submit" onclick="submitAnswer();"></p>
+
  <p id="message"></p>
 
 <script>
@@ -60,17 +64,40 @@
             });
   }
 
+ function submitAnswer() {
+      let answer = document.getElementById("answer").value;
+
+      if (answer === "") {
+          document.getElementById("message").innerHTML = "Please enter an answer";
+          return;
+
+      }
+
+      fetch("https://codecyprus.org/th/api/answer?session=" + session + "&answer=" + answer)
+            .then(response => response.json())
+            .then(jsonObject => {
+                if (jsonObject.status == "OK") {
+                    if (jsonObject.correct) {
+                        document.getElementById("message").innerHTML = "Correct";
+
+                     getQuestion();
+                    }
+                     else {
+                         document.getElementById("message").innerHTML = "Wrong";
+                    }
+
+                }
+                   else {
+                       document.getElementById("message").innerHTML = jsonObject.errorMessages;
+                }
 
 
-
-
+            });
+ }
 
 
 
 
 </script>
-
-
-
 </body>
 </html>
