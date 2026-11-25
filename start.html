@@ -52,14 +52,13 @@
         }
 
 
-
         let url = "https://codecyprus.org/th/api/start?player=" + playerName + "&app=teamAApp&treasure-hunt-id=" + uuid;
 
         fetch(url)
             .then(response => response.json())
             .then(jsonObject => {
                 if (jsonObject.status === "OK") {
-                    document.getElementById("message").innerHTML = "Started Session:" + jsonObject.session;
+                    document.getElementById("message").innerHTML = "<a href='question.html'>First Question</a>";
                     setCookie("session", jsonObject.session, 1);
                 } else {
 
