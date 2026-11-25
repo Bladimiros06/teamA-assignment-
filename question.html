@@ -8,8 +8,67 @@
     <title>Question</title>
 </head>
 <body>
+ <h1>Question</h1>
 
 
+ <p id="questionText"></p>
+ <p id="message"></p>
+
+<script>
+    function getCookie(cname) {
+        let name = cname + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(';');
+
+        for(let i = 0; i <ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+
+    let session = getCookie("session");
+
+  if (session === "") {
+
+      document.getElementById("message").innerHTML = "No game started, please choose one ";
+  }
+
+  else {
+      getQuestion();
+  }
+    function getQuestion() {
+        fetch("https://codecyprus.org/th/api/question?session=" + session)
+            .then(response => response.json())
+            .then(jsonObject => {
+
+                if (jsonObject.status == "OK") {
+
+                    document.getElementById("questionText").innerHTML = jsonObject.questionText;
+                }
+
+                else {
+                    document.getElementById("message").innerHTML = jsonObject.errorMesssages;
+                }
+
+
+            });
+  }
+
+
+
+
+
+
+
+
+
+</script>
 
 
 
