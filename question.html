@@ -46,6 +46,8 @@
 
   else {
       getQuestion();
+      getLocation();
+      setInterval(getLocation, 60000);
   }
     function getQuestion() {
         fetch("https://codecyprus.org/th/api/question?session=" + session)
@@ -117,6 +119,27 @@
                 }
             });
     }
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            }
+            else {
+                alert("Geolocation is not supported by your browser.");
+            }
+        }
+        function showPosition(position) {
+            console.log("Latitude: " + position.coords.latitude + ", Longitude: " +
+                position.coords.longitude);
+
+            fetch("https://codecyprus.org/th/api/location?session=" + session + "&latitude=" + position.coords.latitude + "&longitude=" + position.coords.longitude)
+               .then(response => response.json())
+               .then(jsonObject => {
+                   console.log(jsonObject);
+               });
+       }
+
+
+
 
 </script>
 </body>
