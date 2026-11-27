@@ -37,3 +37,11 @@ We created 2 social acc(inst twit) and put their links in the index.html
 
 Vladimiros worked on coding the question.html and some changes in start.html 
 
+
+### 27/11 FIFTH meeting: started at 11:30 
+
+
+In question.html added end of the game codind ass well as get scores , helped by the worksheets
+
+Also did the Testing API from worksheet9a 
+
