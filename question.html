@@ -17,6 +17,7 @@
  <p><input type="submit" value="Submit" onclick="submitAnswer();"></p>
 
  <p id="message"></p>
+ <p id="score"></p>
 
 <script>
     function getCookie(cname) {
@@ -57,7 +58,7 @@
                 }
 
                 else {
-                    document.getElementById("message").innerHTML = jsonObject.errorMesssages;
+                    document.getElementById("message").innerHTML = jsonObject.errorMessages;
                 }
 
 
@@ -77,11 +78,20 @@
             .then(response => response.json())
             .then(jsonObject => {
                 if (jsonObject.status == "OK") {
-                    if (jsonObject.correct) {
-                        document.getElementById("message").innerHTML = "Correct";
+                  if (jsonObject.correct) {
+                      if (jsonObject.completed) {
 
-                     getQuestion();
-                    }
+                          document.getElementById("message").innerHTML = "You finished the hunt!";
+                          getScore();
+
+                      }
+                      else {
+                          document.getElementById("message").innerHTML = "Correct";
+
+                          getQuestion();
+                      }
+                  }
+
                      else {
                          document.getElementById("message").innerHTML = "Wrong";
                     }
@@ -94,9 +104,19 @@
 
             });
  }
+    function getScore() {
+        fetch("https://codecyprus.org/th/api/score?session=" + session)
+            .then(response => response.json())
+            .then(jsonObject => {
 
+                if (jsonObject.status == "OK") {
 
-
+                    document.getElementById("score").innerHTML = "Your score: " + jsonObject.score;
+                } else {
+                    document.getElementById("message").innerHTML = jsonObject.errorMessages;
+                }
+            });
+    }
 
 </script>
 </body>
