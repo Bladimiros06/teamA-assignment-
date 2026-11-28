@@ -48,3 +48,14 @@ Also did the Testing API from worksheet9a and the location updates from workshee
 
 Team roles final decision
 
+
+
+### 28/11 SIXTH meeting: started at 11 till 13:15
+
+
+Restructured index.html with elements from worksheet1c , added logo+tittle and SEO
+
+Also posted on our social media accounts
+
+Bladimiros: Fixed the location bug
+
