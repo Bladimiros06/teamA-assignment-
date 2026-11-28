@@ -121,7 +121,7 @@
     }
         function getLocation() {
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPosition);
+                navigator.geolocation.getCurrentPosition(showPosition,showError);
             }
             else {
                 alert("Geolocation is not supported by your browser.");
@@ -135,10 +135,13 @@
                .then(response => response.json())
                .then(jsonObject => {
                    console.log(jsonObject);
+
                });
        }
 
-
+       function showError(error) {
+           document.getElementById("message").innerHTML = "Please allow location access";
+       }
 
 
 </script>
